@@ -1,0 +1,26 @@
+   std
+   loadi data, r0
+   loadi 0, r1
+   loadi 2, r3
+   loadi 4, r4
+loop:
+   load r0, r2
+   equ r2, r1
+   br good
+   jr bad
+good:
+   inc r1
+   equ r1, r4
+   br done
+   add r3, r0
+   jr loop
+bad:
+   loadi 65535, r0  # indicate badness easily
+done:
+
+.literal 0
+data:
+.literal 0
+.literal 1
+.literal 2
+.literal 3
