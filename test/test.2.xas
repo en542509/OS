@@ -1,0 +1,34 @@
+   std
+   loadi data, r0
+   loadi 0, r1
+   loadi 2, r3
+   loadi 32700, r4
+loop_write:
+   equ r4, r1
+   br read
+   stor r1, r0
+   add r3, r0
+   inc r1
+   jr loop_write
+read:
+   loadi data, r0
+   loadi 0, r1
+loop_read:
+   equ r4, r1
+   br done
+   load r0, r5
+   equ r5, r1
+   br good
+   jr bad
+good:
+   add r3, r0
+   inc r1
+   jr loop_read
+bad:
+   loadi 65535, r0  # indicate badness easily
+done:
+   xor r1, r1
+
+.literal 0
+data:
+.words 32700

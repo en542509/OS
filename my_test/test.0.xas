@@ -1,0 +1,11 @@
+    std
+    xor r0, r0
+    loadi 1024, r1
+
+loop:
+    inc r0
+    equ r1, r0
+    br _end
+    jr loop
+_end:
+    loadi 0, r1

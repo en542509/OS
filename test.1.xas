@@ -1,0 +1,17 @@
+    std
+    xor r0, r0
+    xor r1, r1
+    loadi 8192, r2
+
+loop:
+    equ r2, r0
+    br _end
+    mov r0, r1
+    inc r0
+    jr loop
+_end:
+    xor r3, r3
+    mov r1, r3
+    xor r1, r1
+
+

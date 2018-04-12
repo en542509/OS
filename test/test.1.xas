@@ -1,0 +1,18 @@
+   std
+   loadi data, r0
+   loadi 0, r1
+   loadi 2, r3
+   loadi 32700, r4
+loop_write:
+   equ r4, r1
+   br done
+   stor r1, r0
+   add r3, r0
+   inc r1
+   jr loop_write
+done:
+   xor r1, r1
+
+.literal 0
+data:
+.words 32700

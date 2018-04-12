@@ -1,0 +1,29 @@
+  loadi 256, r4
+mainloop:
+  loadi 3, r0
+loop_r1:
+  inp   r0, r1
+  mov   r1, r2
+  div   r4, r2
+  test  r2, r2
+  br test_65535
+  jr loop_r1
+test_65535:
+  mov   r1, r2
+  inc   r2
+  test   r2, r2
+  br try
+  jr loop_r1
+
+try:
+  stor  r1, r1
+  xor   r1, r1
+  xor   r2, r2
+  inc   r3
+  test  r3, r3
+  std
+  cld
+  br mainloop
+done:
+
+.literal 0

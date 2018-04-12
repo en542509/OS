@@ -1,0 +1,30 @@
+    std
+    xor r0, r0
+    loadi 2, r1
+    loadi 8192, r2
+    loadi data, r3
+    xor r4, r4
+    xor r5, r5
+
+loop:
+    equ r2, r0
+    br loop2
+    add r1, r0
+    jr loop
+loop2:
+    equ r4, r0
+    br _end
+    inc r0
+    jr loop2
+_end:
+    xor r3, r3
+    mov r1, r3
+    xor r1, r1
+
+
+.literal 0
+data:
+.words 8192
+
+
+

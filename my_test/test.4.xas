@@ -1,0 +1,14 @@
+    std
+    loadi 0, r0
+    loadi 1000, r1
+    loadi 0, r2
+
+loop:
+    equ r0, r1
+    br _end
+    add r0, r1
+    inc r0
+    jr loop
+
+_end:
+    loadi 0, r0
